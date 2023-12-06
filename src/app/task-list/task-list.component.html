@@ -1,0 +1,80 @@
+
+
+<!-- <div class="container mt-5">
+    <h2>Task List</h2>
+  
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Description</th>
+          <th scope="col">Due Date</th>
+          <th scope="col">Priority</th>
+          <th scope="col">Status</th>
+          <th scope="col">Created At</th>
+          <th scope="col">Updated At</th>
+          <th scope="col">Assigned To</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks">
+          <td>{{ task.title }}</td>
+          <td>{{ task.description }}</td>
+          <td>{{ task.dueDate | date:'medium' }}</td>
+          <td>{{ task.priority }}</td>
+          <td>{{ task.status }}</td>
+          <td>{{ task.createdAt | date:'medium' }}</td>
+          <td>{{ task.updatedAt | date:'medium' }}</td>
+          <td>{{ task.userName }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div> -->
+  
+<!-- task-list.component.html -->
+
+<!-- <div class="container mt-4">
+    <h2>Task List</h2>
+    <div *ngFor="let task of tasks" class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">{{ task.title }}</h5>
+        <p class="card-text">{{ task.description }}</p>
+        <p class="card-text"><strong>Due Date:</strong> {{ task.dueDate | date: 'medium' }}</p>
+        <p class="card-text"><strong>Priority:</strong> {{ task.priority }}</p>
+        <p class="card-text"><strong>Status:</strong> {{ task.status }}</p>
+        <p class="card-text"><strong>Created At:</strong> {{ task.createdAt | date: 'medium' }}</p>
+        <p class="card-text" *ngIf="task.updatedAt"><strong>Updated At:</strong> {{ task.updatedAt | date: 'medium' }}</p>
+  
+    
+        <p class="card-text"><strong>Assign To:</strong> {{ task.userName }}</p>
+  
+        <button class="btn btn-primary mx-2" (click)="editTask(task)">Edit</button>
+        <button class="btn btn-danger" (click)="deleteTask(task)">Delete</button>
+      </div>
+    </div>
+  </div> -->
+  
+  <!-- task-list.component.html -->
+
+<div class="container mt-4">
+  <h2>Task List</h2>
+  <div *ngFor="let task of tasks" class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title">{{ task.title }}</h5>
+      <p class="card-text">{{ task.description }}</p>
+      <p class="card-text"><strong>Due Date:</strong> {{ task.dueDate | date: 'medium' }}</p>
+      <p class="card-text"><strong>Priority:</strong> {{ task.priority }}</p>
+      <p class="card-text"><strong>Status:</strong> {{ task.status }}</p>
+      <p class="card-text"><strong>Created At:</strong> {{ task.createdAt | date: 'medium' }}</p>
+      <p class="card-text" *ngIf="task.updatedAt"><strong>Updated At:</strong> {{ task.updatedAt | date: 'medium' }}</p>
+      
+      <!-- Add Assign To field -->
+      <p class="card-text"><strong>Assign To:</strong> {{ task.user?.username || 'Unassigned' }}</p>
+
+      <!-- Add Edit and Delete buttons -->
+      <button class="btn btn-primary" (click)="editTask(task)">Edit</button>
+      <button class="btn btn-danger mx-2" (click)="deleteTask(task)">Delete</button>
+      <button class="btn btn-secondary"  (click)="viewDetails(task.id)">View Details</button>
+    </div>
+  </div>
+</div>

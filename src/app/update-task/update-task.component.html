@@ -1,0 +1,46 @@
+
+<!-- update-task.component.html -->
+
+<div class="container mt-4">
+  <h2>Update Task</h2>
+  <form (submit)="updateTask()">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" [(ngModel)]="task.title" name="title" required>
+    </div>
+    <div class="form-group my-2">
+      <label for="description">Description</label>
+      <textarea class="form-control" id="description" [(ngModel)]="task.description" name="description" required></textarea>
+    </div>
+    <div class="form-group my-2">
+      <label for="dueDate">Due Date</label>
+      <input type="datetime-local" class="form-control" id="dueDate" [(ngModel)]="task.dueDate" name="dueDate" required>
+    </div>
+    <div class="form-group my-2">
+      <label for="priority">Priority</label>
+      <select class="form-control" id="priority" [(ngModel)]="task.priority" name="priority" required>
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+    </div>
+    <div class="form-group my-2">
+      <label for="status">Status</label>
+      <select class="form-control" id="status" [(ngModel)]="task.status" name="status" required>
+        <option value="in-progess">In Progress</option>
+        <option value="pending">Pending</option>
+        <option value="completed">Completed</option>
+      </select>
+    </div>
+    <div class="form-group my-2">
+      <label for="assignTo">Assign To</label>
+      <select class="form-control" id="assignTo" [(ngModel)]="task.user && task.user.userId" name="assignTo">
+        <option [ngValue]="null" disabled selected>Unassigned</option>
+        <option *ngFor="let user of userList" [ngValue]="user.userId">{{ user.username }}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary my-2">Update Task</button>
+  </form>
+</div>
+
+

@@ -1,0 +1,22 @@
+<!-- task-details.component.html -->
+
+<div *ngIf="task$ | async as task">
+    <!-- Display task details -->
+    <h2>{{ task.title }}</h2>
+    <p>{{ task.description }}</p>
+    <p><strong>Due Date:</strong> {{ task.dueDate | date: 'medium' }}</p>
+    <p><strong>Priority:</strong> {{ task.priority }}</p>
+    <p><strong>Status:</strong> {{ task.status }}</p>
+    <p><strong>Created At:</strong> {{ task.createdAt | date: 'medium' }}</p>
+    <p *ngIf="task.updatedAt"><strong>Updated At:</strong> {{ task.updatedAt | date: 'medium' }}</p>
+  
+    <!-- Assign To field -->
+    <p><strong>Assign To:</strong> {{ task.user?.username || 'Unassigned' }}</p>
+  
+    <!-- Add other task details as needed -->
+  </div>
+  
+  <div *ngIf="!(task$ | async)">
+    <p>Loading...</p>
+  </div>
+  

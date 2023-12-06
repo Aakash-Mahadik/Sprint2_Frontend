@@ -1,0 +1,35 @@
+<!-- user-list.component.html -->
+
+<div class="container mt-5">
+    <h2>User List</h2>
+  
+    <table class="table">
+      <thead>
+        <tr>
+          <!-- <th scope="col">ID</th> -->
+          <th scope="col">User Name</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <!-- <th scope="row">{{ user.userId }}</th> -->
+          <td>{{ user.username }}</td>
+          <td>{{ user.firstName }}</td>
+          <td>{{ user.lastName }}</td>
+          <td>{{ user.email }}</td>
+          <td>
+            
+          <button type="button" class="btn btn-primary mx-2" (click)="editUser(user.userId)">Edit</button>
+          <button type="button" class="btn btn-danger" (click)="deleteUser(user)">Delete</button>
+
+            
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

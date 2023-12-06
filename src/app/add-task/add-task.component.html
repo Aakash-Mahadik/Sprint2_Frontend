@@ -1,0 +1,35 @@
+   <!-- add-task.component.html -->
+
+<div class="container mt-4 my-2">
+  <h2>Add Task</h2>
+  <form (submit)="addTask()">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" [(ngModel)]="task.title" name="title" required>
+    </div>
+    <div class="form-group my-2">
+      <label for="description">Description</label>
+      <textarea class="form-control" id="description" [(ngModel)]="task.description" name="description" required></textarea>
+    </div>
+    <div class="form-group my-2">
+      <label for="dueDate">Due Date</label>
+      <input type="date" class="form-control" id="dueDate" [(ngModel)]="task.dueDate" name="dueDate" required>
+    </div>
+    <div class="form-group my-2">
+      <label for="priority">Priority</label>
+      <select class="form-control" id="priority" [(ngModel)]="task.priority" name="priority" required>
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+      </select>
+    </div>
+    <div class="form-group my-2">
+      <label for="assignedUser">Assign To</label>
+      <select class="form-control" id="assignedUser" [(ngModel)]="task.user" name="assignedUser">
+        <option [ngValue]="null" disabled selected>Unassigned</option>
+        <option *ngFor="let user of userList" [ngValue]="user">{{ user.username }}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary my-2">Add Task</button>
+  </form>
+</div>
